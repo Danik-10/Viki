@@ -22,6 +22,44 @@
             min-height: 100vh;
         }
 
+        /* Фиксированная шапка */
+        .fixed-header {
+            position: fixed;
+            top: -100px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+            padding: 15px 20px;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .fixed-header-visible {
+            top: 0;
+        }
+
+        .fixed-logo {
+            font-family: 'Arsenica Trial', sans-serif;
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+        }
+
+        .fixed-subtitle {
+            font-size: 1.2rem;
+            color: white;
+            font-style: italic;
+            margin-top: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Основная шапка */
         .header {
             background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
             padding: 50px 20px;
@@ -30,6 +68,7 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
             margin-bottom: 50px;
+            transition: all 0.3s ease;
         }
 
         .logo-container {
@@ -238,6 +277,13 @@
     </style>
 </head>
 <body>
+    <!-- Фиксированная шапка -->
+    <div class="fixed-header">
+        <div class="fixed-logo">ViKi</div>
+        <div class="fixed-subtitle">Круассаны ... и не только</div>
+    </div>
+
+    <!-- Основная шапка -->
     <header class="header">
         <div class="logo-container">
             <div class="logo">ViKi</div>
@@ -252,6 +298,8 @@
 
     <div class="container">
         <div class="catalog">
+            
+            <!-- Круассаны -->
             <h2 class="category-header">🥐 Круассаны</h2>
             <div class="item">
                 <img src="media/Круассан с джемом 40сом.jpg" class="item-img" alt="Круассан с джемом">
@@ -274,30 +322,20 @@
                 <div class="item-price">60 сом</div>
             </div>
 
+            <!-- Самсы -->
             <h2 class="category-header">🥟 Самсы</h2>
             <div class="item">
-                <img src="media/140гр самса 45с.png" class="item-img" alt="Самса с курицей"
-				style="object-position: center 55%";
-				>
+                <img src="media/140гр самса 45с.png" class="item-img" alt="Самса с курицей" style="object-position: center 55%">
                 <div class="item-title">Сочная самса слоеная с курицей<span class="item-weight">120 грамм</span></div>
                 <div class="item-price">45 сом</div>
             </div>
-			
             <div class="item">
-    <img 
-        src="media/самса 100г 25сом.jpg" 
-        class="item-img" 
-        style="object-position: center 65%; 
-            transform: scale(0.95);
-        " 
-        alt="Самса с тыквой"
-    >
-    <div class="item-title">
-        Самса с тыквой слоеная
-        <span class="item-weight">100 грамм</span>
-    </div>
-    <div class="item-price">35 сом</div>
-</div>
+                <img src="media/самса 100г 25сом.jpg" class="item-img" alt="Самса с тыквой" style="object-position: center 65%; transform: scale(0.95)">
+                <div class="item-title">Самса с тыквой слоеная<span class="item-weight">100 грамм</span></div>
+                <div class="item-price">35 сом</div>
+            </div>
+
+            <!-- Курники -->
             <h2 class="category-header">🥮 Курники</h2>
             <div class="item">
                 <img src="media/курники 55с 200г.jpg" class="item-img" alt="Курник">
@@ -305,8 +343,8 @@
                 <div class="item-price">55 сом</div>
             </div>
 
+            <!-- Пирожки -->
             <h2 class="category-header">🥐 Пирожки</h2>
-			
             <div class="item">
                 <img src="media/пирожки кппус80г 20 сом.jpg" class="item-img" alt="Пирожки с капустой">
                 <div class="item-title">Пирожки с капустой в духовке<span class="item-weight">80 грамм</span></div>
@@ -318,6 +356,7 @@
                 <div class="item-price">20 сом</div>
             </div>
 
+            <!-- Сэндвичи -->
             <h2 class="category-header">🍔 Сэндвичи/Гамбургеры</h2>
             <div class="item">
                 <img src="media/Сэндвич с курицой 60с.png" class="item-img" alt="Сэндвич с курицей">
@@ -335,6 +374,7 @@
                 <div class="item-price">50 сом</div>
             </div>
 
+            <!-- Печенье -->
             <h2 class="category-header">🍪 Печенье и сочни</h2>
             <div class="item">
                 <img src="media/Печенье Клиф 25сом.jpg" class="item-img" alt="Печенье клиф">
@@ -352,6 +392,7 @@
                 <div class="item-price">30 сом</div>
             </div>
 
+            <!-- Кексы -->
             <h2 class="category-header">🧁 Кексы</h2>
             <div class="item">
                 <img src="media/Кекс йуогуртовый 180г 30сом.png" class="item-img" alt="Йогуртовый кекс">
@@ -364,6 +405,7 @@
                 <div class="item-price">30 сом</div>
             </div>
 
+            <!-- Тортики -->
             <h2 class="category-header">🎂 Тортики</h2>
             <div class="item">
                 <img src="media/Шоколадное пирожное 45с.jpg" class="item-img" alt="Шоколадное пирожное">
@@ -399,6 +441,15 @@
     </div>
 
     <script>
+        // Фиксированная шапка
+        window.addEventListener('scroll', () => {
+            const fixedHeader = document.querySelector('.fixed-header');
+            window.scrollY > 100 
+                ? fixedHeader.classList.add('fixed-header-visible')
+                : fixedHeader.classList.remove('fixed-header-visible');
+        });
+
+        // Модальное окно
         const modal = document.getElementById("myModal");
         const modalImg = document.getElementById("img01");
         const closeBtn = document.querySelector(".close");
